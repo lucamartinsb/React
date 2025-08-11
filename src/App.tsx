@@ -3,8 +3,11 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTasks";
 
 function App() {
-  /*Adicionando Hook. Serve para guardar estados/efeitos da aplicação para usar ou reutilizar em componentes.
-  Elimita a necessidade de utilizar classes, facilita a organização e manutençao de forma mais simples.*/
+  /*
+    Adicionando um Hook: 
+    Serve para guardar estados/efeitos da aplicação para usar ou reutilizar em componentes.
+    Elimita a necessidade de utilizar classes, facilita a organização e manutençao de forma mais simples.
+  */
   const [tasks, setTask] = useState([
     {
       id: 1,
@@ -29,8 +32,11 @@ function App() {
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
         <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
-      <Tasks tasks={tasks}/> {/* A prop (tasks) será o state {tasks}.
-      Tudo que eu passar dentro da tag do componente, eu terei acesso lá no componente.tsx*/}
+      <Tasks tasks={tasks}/> {
+      // A prop (tasks) será o state {tasks}
+      // Tudo que eu passar dentro da tag do componente, eu terei acesso lá no componente.tsx, nesse caso, em Tasks.tsx
+      // tasks={} poderá ser acessado lá em Tasks.tsx como métodos. Exemplo: props.tasks[0].title
+      }
       </div>
     </div>  
   );
