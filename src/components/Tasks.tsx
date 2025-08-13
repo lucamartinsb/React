@@ -15,9 +15,15 @@ function Tasks(props) {
         Isso permite que o React otimize a renderização, saiba quais itens foram adicionados, removidos ou reordenados, e mantenha o estado correto de cada componente da lista.
         Neste caso, a key que usaremos será o id de cada objeto do state.
         */
+       // O evento onClick irá invocar a função de atualizar o isCompleted, atualizar o state no App pai e lançar uma linha no texto do botão do item da lista.
         <li key={task.id} className="flex gap-2">
-          <button className="bg-slate-400 text-white p-2 rounded-md w-full text-left">{task.title}</button>
-          <button className="bg-slate-400 p-2 rounded-md text-white"> <ChevronRightIcon/> </button>
+          <button onClick={() => props.onTaskClick(task.id)} 
+          className={`bg-slate-400 text-white p-2 rounded-md w-full text-left ${task.isCompleted && "line-through"}`}>
+            {task.title}
+            </button>
+          <button className="bg-slate-400 p-2 rounded-md text-white">
+            <ChevronRightIcon/> 
+          </button>
           </li>
       ))}
     </ul>

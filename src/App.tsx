@@ -13,32 +13,49 @@ function App() {
       id: 1,
       title: "Estudar Programação",
       description: "Estudar programaçãop para se tornar um dev full-stack",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       id: 2,
       title: "Estudar Inglês",
       description: "Estudar ingles para trabalhar pro exterior",
-      isCompleted: false
+      isCompleted: false,
     },
     {
       id: 3,
       title: "Fazer academia",
       description: "Fazer academia pra ficar forte e saudável",
-      isCompleted: false
-    }
+      isCompleted: false,
+    },
   ]);
+
+  // Criando uma função para atualizar o estado do isCompleted de tasks
+  function onTaskClick(taskID) {
+  const newTasks = tasks.map((task) => {
+    if (task.id === taskID) {
+      return { ...task, isCompleted: !task.isCompleted };
+    }
+    return task;
+    // Atualiza o state.
+  });
+  setTask(newTasks);
+}
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
-      <Tasks tasks={tasks}/> {
-      // A prop (tasks) será o state {tasks}
-      // Tudo que eu passar dentro da tag do componente, eu terei acesso lá no componente.tsx, nesse caso, em Tasks.tsx
-      // tasks={} poderá ser acessado lá em Tasks.tsx como métodos. Exemplo: props.tasks[0].title
-      }
+        <h1 className="text-3xl text-slate-100 font-bold text-center">
+          Gerenciador de Tarefas
+        </h1>
+        <AddTask />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick}/>
+        {
+          // A prop (tasks) será o state {tasks}
+          // Tudo que eu passar dentro da tag do componente, eu terei acesso lá no componente.tsx, nesse caso, em Tasks.tsx
+          // tasks={} poderá ser acessado lá em Tasks.tsx como métodos. Exemplo: props.tasks[0].title
+        }
       </div>
-    </div>  
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 function AddTask() {
     return (
-        <h1>Add Task</h1>
+        <h1></h1>
     )
 }
 
