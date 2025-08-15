@@ -1,7 +1,0 @@
-1*
-Quando você tem uma prop que é uma função e você precisa chamar ela quando clicar no botão e tem que passar um parametro,
-voce coloca um arrow function, e passa o id como parametro.
-Ex: onClick={() => props.onTaskClick(taskID)}
-
-2* Através do template string podemos usar javascript e adicionar tailwind também dentro do className
-EX: className{`codigo tailwind ${task.isCompleted && "line-through"}`}
