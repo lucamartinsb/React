@@ -6,7 +6,7 @@ function App() {
   /*
     Adicionando um Hook: 
     Serve para guardar estados/efeitos da aplicação para usar ou reutilizar em componentes.
-    Elimita a necessidade de utilizar classes, facilita a organização e manutençao de forma mais simples.
+    Elimina a necessidade de utilizar classes, facilita a organização e manutençao de forma mais simples.
   */
   const [tasks, setTask] = useState([
     {
@@ -29,15 +29,21 @@ function App() {
     },
   ]);
 
-  // Criando uma função para atualizar o estado do isCompleted de tasks
+  /*  Criando uma função para atualizar o estado do isCompleted de tasks
+      Essa função recebe como parâmetro o id da tarefa clicada, cria uma constante que recebe o mapeamento atual de tasks (hook) e
+      verfica se a id do parâmetro é igual à algum id da task mapeada, se sim, retorna um novo array da task com o valor de isCompleted, 
+      correspondente ao id em questão, invertido. Caso não, retorna o mapeamento de tasks alterações.
+      Por fim, invoca a função setTask (hook), que atualiza o estado de tasks, com os valores da constante. 
+  */
   function onTaskClick(taskID) {
   const newTasks = tasks.map((task) => {
     if (task.id === taskID) {
       return { ...task, isCompleted: !task.isCompleted };
     }
     return task;
-    // Atualiza o state.
+    
   });
+  // Atualiza o state.
   setTask(newTasks);
 }
 
